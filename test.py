@@ -1,27 +1,13 @@
-k=[]
-argu=[0.10271260514995778,0.44056122202100406,0.0866681890219678,0.11615638103690185,0.7432720313068378,0.6996777370494848,0.7940143618709091,0.12951454238302906,0.07722357548761587,0.6277552881292082,0.05556890393047265,0.027023030060716265,0.021424162626188514]
-for i in range(0,13):
-    tmp=int(input())
-    k.append(tmp)
-A=0
-B=0
-C=0
-for i in range(0,4):
-    A+=argu[i]*k[i]
-for i in range(4,10):
-    B+=argu[i]*k[i]
-for i in range(10,13):
-    C+=argu[i]*k[i]
+import os
+def loadDataSet(fileName):
+    dataMat1 = []
+    labelMat = []
+    os.system("type " + fileName + " > result.txt")
+    fr = open("result.txt")
+    for line in fr.readlines():
+        curLine = line.strip().split("\t")
+        dataMat1.append(list(map(float, curLine[:-1])))
+        labelMat.append([float(curLine[-1])])
+    return dataMat1, labelMat
 
-print(A*B*C)
-
-
-
-
-
-
-
-
-
-
-
+xarr,yarr=loadDataSet("test.txt")

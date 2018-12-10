@@ -67,4 +67,3 @@ for t in range(100000):
 
 print(loss)
 torch.save(net.state_dict(),'net_param.pkl')
-input()
