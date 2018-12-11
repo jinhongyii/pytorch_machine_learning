@@ -66,4 +66,4 @@ for t in range(100000):
     optimizer.step()  # apply gradients
 
 print(loss)
-torch.save(net.state_dict(),'net_param.pkl')
+torch.save(net.state_dict(),'cp_net_param.pkl')
