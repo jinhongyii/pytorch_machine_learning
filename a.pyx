@@ -1,9 +1,11 @@
+import numba
+from numba import jit
 import os
 import torch.utils.data as Data
 import torch
 import torch.nn.functional as F
 from torch.autograd import Variable
-
+@jit
 def loadDataSet(fileName):
     dataMat1 = []
     labelMat = []
