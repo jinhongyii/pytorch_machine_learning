@@ -23,13 +23,13 @@ y = Variable(tensor,requires_grad=True)
 
 
 net=torch.nn.Sequential(
-    torch.nn.Linear(13,32),
+    torch.nn.Linear(13,16),
     torch.nn.ReLU(),
-    torch.nn.Linear(32,32),
-    #torch.nn.PReLU(),
-    #torch.nn.Linear(32,16),
+    torch.nn.Linear(16,16),
     torch.nn.ReLU(),
-    torch.nn.Linear(32,1)
+    torch.nn.Linear(16,16),
+    torch.nn.ReLU(),
+    torch.nn.Linear(16,1)
 
 )
 print(net)  # net architecture
@@ -37,7 +37,7 @@ print(net)  # net architecture
 optimizer = torch.optim.Adam(net.parameters())
 loss_func = torch.nn.MSELoss()  # this is for regression mean squared loss
 
-for epoch in range(20000):
+for epoch in range(30000):
     prediction = net(x)  # input x and predict based on x
     loss = loss_func(prediction, y)
     optimizer.zero_grad()  # clear gradients for next train
