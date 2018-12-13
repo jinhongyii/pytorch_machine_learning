@@ -1,7 +1,8 @@
 import os
+
 import torch
 from numba import jit
-from torch.autograd import Variable
+#from torch.autograd import Variable
 
 @jit
 def loadDataSet(fileName):
@@ -16,20 +17,15 @@ def loadDataSet(fileName):
     return dataMat1, labelMat
 
 xArr, yArr = loadDataSet("cm.txt")
-tensor = torch.Tensor(xArr)
-x = Variable(tensor,requires_grad=True)
-tensor = torch.Tensor(yArr)
-y = Variable(tensor,requires_grad=True)
-
+x = torch.Tensor(xArr)
+y = torch.Tensor(yArr)
 
 net=torch.nn.Sequential(
-    torch.nn.Linear(13,16),
+    torch.nn.Linear(13,32),
     torch.nn.ReLU(),
-    torch.nn.Linear(16,16),
+    torch.nn.Linear(32,32),
     torch.nn.ReLU(),
-    torch.nn.Linear(16,16),
-    torch.nn.ReLU(),
-    torch.nn.Linear(16,1)
+    torch.nn.Linear(32,1)
 
 )
 print(net)  # net architecture
