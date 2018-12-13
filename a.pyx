@@ -2,7 +2,6 @@ import os
 
 import torch
 from numba import jit
-#from torch.autograd import Variable
 
 @jit
 def loadDataSet(fileName):
@@ -29,7 +28,6 @@ net=torch.nn.Sequential(
 
 )
 print(net)  # net architecture
-#optimizer=torch.optim.SGD(net.parameters(),lr=1e-3)
 optimizer = torch.optim.Adam(net.parameters())
 loss_func = torch.nn.MSELoss()  # this is for regression mean squared loss
 
