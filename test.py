@@ -10,4 +10,4 @@ def loadDataSet(fileName):
         labelMat.append([float(curLine[-1])])
     return dataMat1, labelMat
 
-xarr,yarr=loadDataSet("test.txt")
+xarr,yarr=loadDataSet("cptest.txt")
